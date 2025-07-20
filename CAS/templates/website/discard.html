@@ -1,55 +1,4 @@
-{% load static tailwind_tags %}
-{% load static %}
-
-<!-- main.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}AI Career Advisor{% endblock title %}</title>
-    <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
-</head>
-<body class="bg-gray-100 text-gray-900">
-
-    {% block navbar %}
-    <nav class="bg-gradient-to-r from-blue-800 to-blue-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="/" class="text-xl font-bold">AI Career Advisor</a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-white focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Desktop menu -->
-                <div id="mobile-menu" class="hidden md:flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
-                    <a href="/" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Home</a>
-                    <a href="/about" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">About</a>
-                    <a href="/resume" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Resume Advisor</a>
-                    <a href="/Jobs aligned" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Jobs aligned</a>
-                    <div class="md:border-l md:border-blue-300 md:h-6 mx-3"></div>
-                    <a href="/login" class="px-3 py-2 bg-white text-blue-600 rounded-md text-sm font-medium hover:bg-gray-100 transition duration-300">Login/Register</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    {% endblock navbar %}
-
-    <main>
-        {% block content %}{% endblock content %}
-    </main>
-
-    {% block footer %}
-        <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-gradient-to-r from-blue-800 to-blue-900 text-white">
         <div class="container mx-auto px-6 py-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -105,13 +54,3 @@
             </div>
         </div>
     </footer>
-    {% endblock footer %}
-    
-    {% comment %} <script>
-        document.getElementById('menu-toggle').addEventListener('click', function () {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-    </script> {% endcomment %}
-</body>
-</html>
