@@ -5,5 +5,5 @@ from django.shortcuts import render
 def home_view(request):
     return render(request, "website/home.html")
 
-def about_view(request):
-    return render(request, "website/about.html")
+def resume_advisor_view(request):
+    return render(request, "website/resume_advisor.html")
