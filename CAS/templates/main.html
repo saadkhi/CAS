@@ -4,114 +4,142 @@
 <!-- main.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}AI Career Advisor{% endblock title %}</title>
-    <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
-</head>
-<body class="bg-gray-100 text-gray-900">
-
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% block title %}
+        AI Career Advisor
+      {% endblock %}
+    </title>
+    <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 text-gray-900">
     {% block navbar %}
-    <nav class="bg-gradient-to-r from-blue-800 to-blue-900 text-white">
+      <nav class="bg-gradient-to-r from-blue-800 to-blue-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="/" class="text-xl font-bold">AI Career Advisor</a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-white focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Desktop menu -->
-                <div id="mobile-menu" class="hidden md:flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
-                    <a href="/" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Home</a>
-                    <a href="/about" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">About</a>
-                    <a href="/resume" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Resume Advisor</a>
-                    <a href="/Jobs aligned" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Jobs aligned</a>
-                    <div class="md:border-l md:border-blue-300 md:h-6 mx-3"></div>
-                    <a href="/login" class="px-3 py-2 bg-white text-blue-600 rounded-md text-sm font-medium hover:bg-gray-100 transition duration-300">Login/Register</a>
-                </div>
+          <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+              <a href="/" class="text-xl font-bold">AI Career Advisor</a>
             </div>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+              <button id="menu-toggle" class="text-white focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Desktop menu -->
+            <div id="mobile-menu" class="hidden md:flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
+              <a href="/" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Home</a>
+              <a href="#features-section" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">features</a>
+              <a href="/resume" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Resume Advisor</a>
+              <a href="/Jobs aligned" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Jobs aligned</a>
+              <div class="md:border-l md:border-blue-300 md:h-6 mx-3"></div>
+              <a href="/login" class="px-3 py-2 bg-white text-blue-600 rounded-md text-sm font-medium hover:bg-gray-100 transition duration-300">Login/Register</a>
+            </div>
+          </div>
         </div>
-    </nav>
-    {% endblock navbar %}
+      </nav>
+    {% endblock %}
 
     <main>
-        {% block content %}{% endblock content %}
+      {% block content %}
+
+      {% endblock %}
     </main>
 
     {% block footer %}
-        <!-- Footer -->
-    <footer class="bg-gradient-to-r from-blue-800 to-blue-900 text-white">
+      <!-- Footer -->
+      <footer class="bg-gradient-to-r from-blue-800 to-blue-900 text-white">
         <div class="container mx-auto px-6 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">AI Career Advisor</h3>
-                    <p class="text-sm text-blue-100">Your intelligent guide to career growth and skill development.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Navigation</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="/dashboard" class="hover:text-blue-300 transition duration-200">Dashboard</a></li>
-                        <li><a href="/assessments" class="hover:text-blue-300 transition duration-200">Assessments</a></li>
-                        <li><a href="/jobs" class="hover:text-blue-300 transition duration-200">Job Matching</a></li>
-                        <li><a href="/learning" class="hover:text-blue-300 transition duration-200">Learning Paths</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="/blog" class="hover:text-blue-300 transition duration-200">Career Blog</a></li>
-                        <li><a href="/faq" class="hover:text-blue-300 transition duration-200">FAQs</a></li>
-                        <li><a href="/contact" class="hover:text-blue-300 transition duration-200">Contact Us</a></li>
-                        <li><a href="/privacy" class="hover:text-blue-300 transition duration-200">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="hover:text-blue-300 transition duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.234 2.686.234v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                        <a href="#" class="hover:text-blue-300 transition duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/></svg>
-                        </a>
-                        <a href="#" class="hover:text-blue-300 transition duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-                        </a>
-                        <a href="#" class="hover:text-blue-300 transition duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                        </a>
-                    </div>
-                    <div class="mt-4">
-                        <p class="text-sm text-blue-100">Subscribe to our newsletter</p>
-                        <form class="mt-2 flex">
-                            <input type="email" placeholder="Your email" class="px-3 py-2 text-sm text-gray-800 rounded-l focus:outline-none w-full">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 text-sm rounded-r">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 class="text-xl font-bold mb-4">AI Career Advisor</h3>
+              <p class="text-sm text-blue-100">Your intelligent guide to career growth and skill development.</p>
             </div>
-            <div class="border-t border-blue-700 mt-8 pt-6 text-center text-sm text-blue-200">
-                <p>© 2023 AI Career Advisor System. All rights reserved.</p>
+            <div>
+              <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <a href="/dashboard" class="hover:text-blue-300 transition duration-200">Dashboard</a>
+                </li>
+                <li>
+                  <a href="/assessments" class="hover:text-blue-300 transition duration-200">Assessments</a>
+                </li>
+                <li>
+                  <a href="/jobs" class="hover:text-blue-300 transition duration-200">Job Matching</a>
+                </li>
+                <li>
+                  <a href="/learning" class="hover:text-blue-300 transition duration-200">Learning Paths</a>
+                </li>
+              </ul>
             </div>
+            <div>
+              <h4 class="text-lg font-semibold mb-4">Resources</h4>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <a href="/blog" class="hover:text-blue-300 transition duration-200">Career Blog</a>
+                </li>
+                <li>
+                  <a href="/faq" class="hover:text-blue-300 transition duration-200">FAQs</a>
+                </li>
+                <li>
+                  <a href="/contact" class="hover:text-blue-300 transition duration-200">Contact Us</a>
+                </li>
+                <li>
+                  <a href="/privacy" class="hover:text-blue-300 transition duration-200">Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+              <div class="flex space-x-4">
+                <a href="#" class="hover:text-blue-300 transition duration-200">
+                  <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.234 2.686.234v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                <a href="#" class="hover:text-blue-300 transition duration-200">
+                  <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z" />
+                  </svg>
+                </a>
+                <a href="#" class="hover:text-blue-300 transition duration-200">
+                  <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                  </svg>
+                </a>
+                <a href="#" class="hover:text-blue-300 transition duration-200">
+                  <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                  </svg>
+                </a>
+              </div>
+              <div class="mt-4">
+                <p class="text-sm text-white-100">Subscribe to our newsletter</p>
+                <form class="mt-2 flex items-center bg-white p-2 rounded">
+                  <input type="email" placeholder="Your email" class="px-3 py-2 text-sm text-gray-800 border border-gray-300 rounded focus:outline-none w-full" />
+                  <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-600 px-4 py-2 text-sm text-white rounded">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-blue-700 mt-8 pt-6 text-center text-sm text-blue-200">
+            <p>© 2023 AI Career Advisor System. All rights reserved.</p>
+          </div>
         </div>
-    </footer>
-    {% endblock footer %}
-    
+      </footer>
+    {% endblock %}
+
     {% comment %} <script>
         document.getElementById('menu-toggle').addEventListener('click', function () {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
     </script> {% endcomment %}
-</body>
+  </body>
 </html>
