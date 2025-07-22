@@ -122,8 +122,9 @@
               </div>
               <div class="mt-4">
                 <p class="text-sm text-white-100">Subscribe to our newsletter</p>
-                <form class="mt-2 flex items-center bg-white p-2 rounded">
-                  <input type="email" placeholder="Your email" class="px-3 py-2 text-sm text-gray-800 border border-gray-300 rounded focus:outline-none w-full" />
+                <form method="post" action="{% url 'subscribe_newsletter' %}" class="mt-2 flex items-center bg-white p-2 rounded">
+                  {% csrf_token %}
+                  <input type="email" name="email" placeholder="Your email" class="px-3 py-2 text-sm text-gray-800 border border-gray-300 rounded focus:outline-none w-full" required />
                   <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-600 px-4 py-2 text-sm text-white rounded">Subscribe</button>
                 </form>
               </div>
