@@ -1,8 +1,12 @@
 {% extends 'main.html' %}
 {% load static %}
 
+{% block title %}
+  Home
+{% endblock %}
+
 {% block content %}
-  <section id="homepage-start-section" class="mt-0 font-Arial">
+  <section id="homepage-start-section" class="mt-0 font-Arial bg-white">
     <div class="relative w-full h-[250px] bg-cover bg-center overflow-hidden" style="background-image: url('{% static 'images/homepage_img1.png' %}');">
       <!-- Black overlay using RGBA for transparency -->
       <div class="absolute inset-0" style="background-color: rgba(0, 0, 0, 0.5);"></div>
@@ -14,23 +18,23 @@
     </div>
   </section>
 
-  <section class="mt-0 relative w-full bg-cover bg-center overflow-hidden font-Arial px-6 py-8">
+  <section class="mt-0 relative w-full bg-cover bg-center overflow-hidden font-Arial px-6 py-8 bg-white">
     <h2 class="text-2xl font-semibold mb-4 text-center">Welcome to AI Career Advisor</h2>
 
-    <ul class="text-gray-700 list-disc pl-6 space-y-2">
+    <ul class="text-gray-700 list-disc pl-6 space-y-2 bg-white">
       <li>AI Career Advisor is your intelligent guide to career growth and skill development. Our platform leverages the power of AI to provide personalized career advice, resume optimization, and job alignment services.</li>
       <li>Whether you're looking to enhance your resume, explore job opportunities, or receive tailored career guidance, AI Career Advisor is here to help you succeed in your career journey.</li>
       <li>Join us today and take the first step towards achieving your career goals!</li>
       <li>Upload your resume and receive personalized career suggestions and skill improvement recommendations.</li>
     </ul>
 
-    <div class="text-center mt-6 flex justify-center gap-8">
-      <a href="/resume-advisor/" class="bg-blue-800 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-lg text-lg transition duration-300">Get Started</a>
-      <a href="#get-started" class="bg-blue-800 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-lg text-lg transition duration-300">Jobs aligned</a>
+    <div class="text-center mt-6 flex justify-center gap-8 bg-white">
+      <a href="/resume-advisor/" class="bg-blue-800 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-lg text-lg transition duration-300">Resume Advisor</a>
+      <a href="#get-started" class="bg-blue-800 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-lg text-lg transition duration-300">Jobs Aligned</a>
     </div>
   </section>
 
-  <section id="features-section" class="mt-0 font-Arial">
+  <section id="features-section" class="mt-0 font-Arial bg-white">
     <div class="relative w-full h-[250px] bg-cover bg-center overflow-hidden" style="background-image: url('{% static 'images/homepage_img3.jpg' %}');">
       <!-- Black overlay using RGBA for transparency -->
       <div class="absolute inset-0" style="background-color: rgba(0, 0, 0, 0.5);"></div>
