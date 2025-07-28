@@ -15,112 +15,103 @@
     </div>
   </section>
 
-<section id="form" class="mt-3 relative w-full bg-cover bg-center overflow-hidden font-Arial px-6 py-8 bg-blue-600">
-  <div class="max-w-7xl mx-auto bg-white p-8 rounded-xl shadow-xl mt-3">
-    <!-- Parent container with flex -->
-    <div class="flex flex-col md:flex-row gap-8 mt-3">
-      
-      <!-- Left Side: Form -->
-      <div class="w-full md:w-1/2 mt-3">
-        <form action="/submit" method="POST" enctype="multipart/form-data" class="space-y-3">
-          <h2 class="text-xl font-semibold text-blue-700 mt-3">Resume Evaluator</h2>
+  <section id="form" class="mt-3 relative w-full bg-cover bg-center overflow-hidden font-Arial px-6 py-8 bg-blue-600">
+    <div class="max-w-7xl mx-auto bg-white p-8 rounded-xl shadow-xl mt-3">
+      <!-- Parent container with flex -->
+      <div class="flex flex-col md:flex-row gap-8 mt-3">
+        <!-- Left Side: Form -->
+        <div class="w-full md:w-1/2 mt-3">
+          <form action="{% url 'resume_advisor_view' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 class="text-xl font-semibold text-blue-700 mt-3">Resume Evaluator</h2>
 
-          <!-- Name -->
-          <div class="mt-3">
-            <label for="Name" class="block text-sm font-medium text-gray-700 mt-3">Your Name</label>
-            <input type="text" id="Name" name="Name" class="w-full border border-gray-300 rounded-md p-2 mt-3" required />
+            <!-- Name -->
+            <div class="mt-3">
+              <label for="Name" class="block text-sm font-medium text-gray-700 mt-3">Your Name</label>
+              <input type="text" id="Name" name="Name" class="w-full border border-gray-300 rounded-md p-2 mt-3" required value="{{ user_name }}" />
+            </div>
+
+            <!-- Resume Upload -->
+            <div class="mt-3">
+              <label for="resume" class="block text-sm font-medium text-gray-700 mt-3">Upload Resume (PDF/DOCX)</label>
+              <input type="file" id="resume" name="resume" accept=".pdf,.docx" class="w-full border border-gray-300 rounded-md p-2 mt-3 mb-6" required />
+            </div>
+
+            <h2 class="text-xl font-semibold text-blue-700 mt-3">Resume Analysis Outcome</h2>
+
+            <div class="mt-3">
+              <p class="block text-sm font-medium text-gray-700 mt-3">Score</p>
+              <output id="score" name="score" class="w-full border border-gray-300 rounded-md p-2 block h-16 leading-6 mt-3">{{ score }}</output>
+            </div>
+
+            <div class="mt-3">
+              <p class="block text-sm font-medium text-gray-700 mt-3">Suggestions for Learning</p>
+              <textarea id="suggestions" name="suggestions" rows="4" class="w-full border border-gray-300 rounded-md p-2 block resize-none overflow-hidden mt-3" placeholder="Suggestions will appear here..." readonly>{{ suggestions }}</textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center mt-8">
+              <button type="submit" class="bg-blue-800 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 mt-3">Submit Information</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right Side: PDF Preview -->
+        <div class="w-full md:w-1/2 flex flex-col gap-4 mt-3">
+          <h2 class="text-xl font-semibold text-blue-700 mt-3">Resume Preview</h2>
+          <div id="pdfContainer" class="border border-gray-300 rounded-md mt-3 p-3 overflow-auto w-full h-[600px] bg-gray-50">
+            {% if resume_url %}
+              <iframe src="{{ resume_url }}" width="100%" height="550px" style="border:none;"></iframe>
+            {% else %}
+              <p id="previewMessage" class="text-gray-500 text-center mt-3">Upload a PDF to preview it here.</p>
+            {% endif %}
           </div>
-
-          <!-- Resume Upload -->
-          <div class="mt-3">
-            <label for="resume" class="block text-sm font-medium text-gray-700 mt-3">Upload Resume (PDF/DOCX)</label>
-            <input type="file" id="resume" name="resume" accept=".pdf,.docx" class="w-full border border-gray-300 rounded-md p-2 mt-3 mb-6" required />
-          </div>
-
-          <h2 class="text-xl font-semibold text-blue-700 mt-3">Resume Analysis Outcome</h2>
-
-          <div class="mt-3">
-            <p class="block text-sm font-medium text-gray-700 mt-3">Score</p>
-            <output id="score" name="score" class="w-full border border-gray-300 rounded-md p-2 block h-16 leading-6 mt-3"></output>
-          </div>
-
-          <div class="mt-3">
-            <p class="block text-sm font-medium text-gray-700 mt-3">Suggestions for Learning</p>
-            <textarea id="suggestions" name="suggestions" rows="4" class="w-full border border-gray-300 rounded-md p-2 block resize-none overflow-hidden mt-3" placeholder="Suggestions will appear here..." readonly></textarea>
-          </div>
-
-          <!-- Submit Button -->
-          <div class="text-center mt-8">
-            <button type="submit" class="bg-blue-800 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 mt-3">Submit Information</button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Right Side: PDF Preview -->
-      <div class="w-full md:w-1/2 flex flex-col gap-4 mt-3">
-        <h2 class="text-xl font-semibold text-blue-700 mt-3">Resume Preview</h2>
-
-        <!-- Preview Container FIXED SIZE -->
-        <div id="pdfContainer" class="border border-gray-300 rounded-md mt-3 p-3 overflow-auto w-full h-[600px] bg-gray-50">
-          <p id="previewMessage" class="text-gray-500 text-center mt-3">
-            Upload a PDF to preview it here.
-          </p>
+          {% if not resume_url %}
+            <!-- PDF.js Library -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+            <script>
+              const resumeInput = document.getElementById('resume')
+              const pdfContainer = document.getElementById('pdfContainer')
+              const message = document.getElementById('previewMessage')
+              resumeInput.addEventListener('change', function (event) {
+                const file = event.target.files[0]
+                if (file && file.type === 'application/pdf') {
+                  if (message) message.style.display = 'none'
+                  pdfContainer.innerHTML = ''
+                  const fileReader = new FileReader()
+                  fileReader.onload = function () {
+                    const typedArray = new Uint8Array(this.result)
+                    pdfjsLib.getDocument(typedArray).promise.then(function (pdf) {
+                      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                        pdf.getPage(pageNum).then(function (page) {
+                          const containerWidth = pdfContainer.clientWidth - 30
+                          const unscaledViewport = page.getViewport({ scale: 1 })
+                          const scale = containerWidth / unscaledViewport.width
+                          const viewport = page.getViewport({ scale: scale })
+                          const canvas = document.createElement('canvas')
+                          const context = canvas.getContext('2d')
+                          canvas.height = viewport.height
+                          canvas.width = viewport.width
+                          canvas.classList.add('mb-4')
+                          pdfContainer.appendChild(canvas)
+                          const renderContext = {
+                            canvasContext: context,
+                            viewport: viewport
+                          }
+                          page.render(renderContext)
+                        })
+                      }
+                    })
+                  }
+                  fileReader.readAsArrayBuffer(file)
+                } else {
+                  pdfContainer.innerHTML = '<p class="text-gray-500 text-center mt-3">Only PDF files can be previewed.</p>'
+                }
+              })
+            </script>
+          {% endif %}
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- PDF.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-
-  <script>
-    const resumeInput = document.getElementById('resume');
-    const pdfContainer = document.getElementById('pdfContainer');
-    const message = document.getElementById('previewMessage');
-
-    resumeInput.addEventListener('change', function (event) {
-      const file = event.target.files[0];
-
-      if (file && file.type === 'application/pdf') {
-        message.style.display = 'none';
-        pdfContainer.innerHTML = ''; // Clear previous preview
-
-        const fileReader = new FileReader();
-        fileReader.onload = function () {
-          const typedArray = new Uint8Array(this.result);
-
-          pdfjsLib.getDocument(typedArray).promise.then(function (pdf) {
-            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-              pdf.getPage(pageNum).then(function (page) {
-                // Scale dynamically so it fits the container width
-                const containerWidth = pdfContainer.clientWidth - 30; // some padding
-                const unscaledViewport = page.getViewport({ scale: 1 });
-                const scale = containerWidth / unscaledViewport.width;
-
-                const viewport = page.getViewport({ scale: scale });
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-                canvas.classList.add('mb-4');
-
-                pdfContainer.appendChild(canvas);
-
-                const renderContext = {
-                  canvasContext: context,
-                  viewport: viewport
-                };
-                page.render(renderContext);
-              });
-            }
-          });
-        };
-        fileReader.readAsArrayBuffer(file);
-      } else {
-        pdfContainer.innerHTML = '<p class="text-gray-500 text-center mt-3">Only PDF files can be previewed.</p>';
-      }
-    });
-  </script>
-</section>
+  </section>
 {% endblock %}
