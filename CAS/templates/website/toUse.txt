@@ -1,0 +1,41 @@
+
+{% comment %} <div class="mt-2">
+  <label for="degree" class="block text-sm font-medium text-gray-700 mt-3">Degree</label>
+  <input type="text" id="degree" name="degree" class="w-full border border-gray-300 rounded-md p-2" required />
+</div>
+
+<div class="mt-2">
+  <label for="institution" class="block text-sm font-medium text-gray-700 mt-3">Institution</label>
+  <input type="text" id="institution" name="institution" class="w-full border border-gray-300 rounded-md p-2" required />
+</div>
+
+<div class="mt-2">
+  <label for="graduation_year" class="block text-sm font-medium text-gray-700 mt-3">Graduation Year</label>
+  <input type="number" id="graduation_year" name="graduation_year" class="w-full border border-gray-300 rounded-md p-2" required />
+</div>
+
+<div class="mt-2">
+  <label for="gpa" class="block text-sm font-medium text-gray-700 mt-3">GPA</label>
+  <input type="text" id="gpa" name="gpa" class="w-full border border-gray-300 rounded-md p-2" required />
+</div>
+
+<div class="mt-2">
+  <label for="skills" class="block text-sm font-medium text-gray-700 mt-3">List your skills (comma separated)</label>
+  <textarea id="skills" name="skills" rows="3" class="w-full border border-gray-300 rounded-md p-2 mt-1" required></textarea>
+</div>
+
+<div class="mt-2">
+  <label for="certifications" class="block text-sm font-medium text-gray-700 mt-3 mt-4">Certifications</label>
+  <input type="text" id="certifications" name="certifications" class="w-full border border-gray-300 rounded-md p-2 mt-1" placeholder="e.g., AWS Certified, PMP" />
+</div> {% endcomment %}
+
+<!-- Resume Section -->
+
+<!-- Projects Section -->
+{% comment %} <h2 class="text-xl font-semibold text-blue-700 mb-4 mt-3">💻 Projects</h2>
+
+<label for="projects" class="block text-sm font-medium text-gray-700 mt-3">Describe your projects (comma separated)</label>
+<textarea id="projects" name="projects" rows="3" class="w-full border border-gray-300 rounded-md p-2 mt-1" required></textarea>
+
+<label for="project_links" class="block text-sm font-medium text-gray-700 mt-3 mt-4">Project Links</label>
+<input type="text" id="project_links" name="project_links" class="w-full border border-gray-300 rounded-md p-2 mt-1" placeholder="e.g., https://github.com/yourproject" /> {% endcomment %}
