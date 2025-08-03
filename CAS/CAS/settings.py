@@ -49,7 +49,7 @@ TAILWIND_APP_NAME = "theme"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-NPM_BIN_PATH = "/home/saad/.nvm/versions/node/v20.19.1/bin/npm"
+NPM_BIN_PATH = "/usr/bin/npm"
 
 
 MIDDLEWARE = [
