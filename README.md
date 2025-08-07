@@ -18,7 +18,7 @@ AI Career Advisor System (CAS) is a web-based platform designed to assist users 
 
 - **Backend:** Django (Python)
 - **Frontend:** HTML, Tailwind CSS, JavaScript
-- **Database:** SQLite3 (default, easily swappable)
+- **Database:** SQLite3
 - **Templates:** Django Template Engine
 - **Version Control:** Git
 
